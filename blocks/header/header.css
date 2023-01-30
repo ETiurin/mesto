@@ -1,0 +1,16 @@
+.header {
+  display: inline-flex;
+  justify-content: space-between;
+  width: 68.75%;
+  max-width: 1280px;
+  min-width: 320px;
+  padding-top: 45px;
+  box-sizing: border-box;
+  border-bottom: 1px solid #545454;
+}
+
+@media all and (max-width: 767px) {
+  .header {
+    padding-top: 28px;
+  }
+}

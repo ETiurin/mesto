@@ -7,6 +7,12 @@
   background-color: transparent;
   background-repeat: no-repeat;
   border: none;
+  transition: .2s;
+}
+
+.profile__edit-button:hover {
+  opacity: .6;
+  cursor: pointer;
 }
 
 @media all and (max-width: 767px) {

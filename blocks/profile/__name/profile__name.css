@@ -6,10 +6,8 @@
   line-height: 48px;
   text-overflow: ellipsis;
   white-space: nowrap;
-  max-width: 300px;
-  text-overflow: ellipsis;
-  white-space: nowrap;
   overflow: hidden;
+  max-width: 300px;
 }
 
 @media all and (max-width: 1023px) {

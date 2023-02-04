@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="портфолио Евгения Тюрина на Яндекс.Практикуме"
+    />
+    <meta name="keywords" content="html, css, javascript" />
+    <meta name="author" content="Евгений Тюрин" />
+    <link rel="stylesheet" href="./pages/index.css" />
+    <title>Место</title>
+  </head>
+  <body>
+    <div class="page">
+      <header class="header">
+        <img
+          class="header__logo"
+          src="./images/Vector.svg"
+          alt="Mesto Russia"
+        />
+      </header>
+      <main class="main">
+        <section class="profile">
+          <div class="profile__avatar-wrapper">
+            <img
+              class="profile__avatar"
+              src="./images/image_profile.jpg"
+              alt="Жак-Ив Кусто"
+            />
+          </div>
+          <div class="profile__info">
+            <div class="profile__container">
+              <h1 class="profile__name">Жак-Ив&nbsp;Кусто</h1>
+              <button type="button" class="profile__edit-button"></button>
+            </div>
+            <p class="profile__about">Исследователь&nbsp;океана</p>
+          </div>
+          <button type="button" class="profile__add-button"></button>
+        </section>
+        <section class="elements">
+          <div class="element">
+            <img
+              class="element__image"
+              src="./images/Belukha.jpg"
+              alt="гора Белуха"
+            />
+            <div class="element__container">
+              <h2 class="element__title">Белуха</h2>
+              <button type="button" class="element__like-button"></button>
+            </div>
+          </div>
+          <div class="element">
+            <img
+              class="element__image"
+              src="./images/Beshtau.jpg"
+              alt="гора Бештау"
+            />
+            <div class="element__container">
+              <h2 class="element__title">Бештау</h2>
+              <button type="button" class="element__like-button"></button>
+            </div>
+          </div>
+          <div class="element">
+            <img
+              class="element__image"
+              src="./images/Dombai.jpg"
+              alt="горы Домбая"
+            />
+            <div class="element__container">
+              <h2 class="element__title">Домбай</h2>
+              <button type="button" class="element__like-button"></button>
+            </div>
+          </div>
+          <div class="element">
+            <img
+              class="element__image"
+              src="./images/Dykhtau.jpg"
+              alt="гора Дыхтау"
+            />
+            <div class="element__container">
+              <h2 class="element__title">Дыхтау</h2>
+              <button type="button" class="element__like-button"></button>
+            </div>
+          </div>
+          <div class="element">
+            <img
+              class="element__image"
+              src="./images/Kazbek.jpg"
+              alt="гора Казбек"
+            />
+            <div class="element__container">
+              <h2 class="element__title">Казбек</h2>
+              <button type="button" class="element__like-button"></button>
+            </div>
+          </div>
+          <ar class="element">
+            <img
+              class="element__image"
+              src="./images/Shhara.jpg"
+              alt="гора Шхара"
+            />
+            <div class="element__container">
+              <h2 class="element__title">Шхара</h2>
+              <button type="button" class="element__like-button"></button>
+            </div>
+          </ar>
+        </section>
+      </main>
+      <footer class="footer">
+        <p class="footer__copyright">&copy;&nbsp;2023&nbsp;Mesto&nbsp;Russia</p>
+      </footer>
+      <div class="popup">
+        <div class="popup__container">
+          <button type="button" class="popup__close"></button>
+          <h2 class="popup__title">Редактировать профиль</h2>
+          <input name="user_name" class="popup__input popup__input_type_name" type="text" placeholder="Имя">
+          <input name="user_about" class="popup__input popup__input_type_about" type="text" placeholder="О cебе">
+          <button class="popup__button" type="button">Сохранить</button>
+        </div>
+      </div>
+    </div>
+    <script src="./scripts/index.js"></script>
+  </body>
+</html>

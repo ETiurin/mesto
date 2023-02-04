@@ -1,0 +1,14 @@
+.header {
+  display: flex;
+  width: 68.75%;
+  padding-top: 45px;
+  box-sizing: border-box;
+  border-bottom: 1px solid #545454;
+}
+
+@media all and (max-width: 767px) {
+  .header {
+    width: 100%;
+    padding: 0;
+  }
+}

@@ -1,5 +1,7 @@
 # Проект: Место
 
+* [Ссылка на репозиторий](https://github.com/ETiurin/mesto.git)
+
 ### Обзор
 
 * Figma

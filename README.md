@@ -1,6 +1,6 @@
 # Проект: Место
 
-* [Ссылка на репозиторий](git@github.com:ETiurin/mesto.git)
+* [Ссылка на репозиторий](https://github.com/ETiurin/mesto.git)
 
 ### Обзор
 

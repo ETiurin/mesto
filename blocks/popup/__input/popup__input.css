@@ -9,11 +9,11 @@
   padding: 0 0 12px 0;
   margin: 0;
   box-sizing: border-box;
+  max-width: 358px;
 }
 
 @media all and (max-width: 767px) {
   .popup__input {
     max-width: 238px;
-    margin-bottom: 48px;
   }
 }

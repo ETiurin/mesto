@@ -1,13 +1,12 @@
-
-const openEditPopup = document.querySelector(".profile__edit-button");
+const openEditedPopup = document.querySelector(".profile__edit-button");
 const popupContainer = document.querySelector(".popup");
-const popupBtnClose = document.querySelector(".popup__close");
-const formDescription = document.querySelector(".popup__form");
+const popupButtonClose = document.querySelector(".popup__close");
+const submitButton = document.querySelector(".popup__button");
 
-let profileName = document.querySelector(".profile__name");
-let profileAbout = document.querySelector(".profile__about");
-let userNameInput = document.querySelector(".popup__input_type_name");
-let profileAboutInput = document.querySelector(".popup__input_type_about");
+const profileName = document.querySelector(".profile__name");
+const profileAbout = document.querySelector(".profile__about");
+const userNameInput = document.querySelector(".popup__input_type_name");
+const profileAboutInput = document.querySelector(".popup__input_type_about");
 
 function openPopup() {
   userNameInput.value = profileName.textContent;
@@ -16,11 +15,8 @@ function openPopup() {
 }
 
 function closePopup() {
-
   popupContainer.classList.remove("popup_opened")
 }
-
-// Функция редактирования окна
 
 function editinProfileName(evt) {
 
@@ -32,6 +28,6 @@ function editinProfileName(evt) {
   closePopup();
 }
 
-openEditPopup.addEventListener("click", openPopup)
-popupBtnClose.addEventListener("click", closePopup)
-formDescription.addEventListener("button", editinProfileName);
+openEditedPopup.addEventListener("click", openPopup);
+popupButtonClose.addEventListener("click", closePopup);
+submitButton.addEventListener("click", editinProfileName);

@@ -82,3 +82,22 @@ function renderCard({ name, link }) {
 }
 
 render();
+
+const addButton = document.querySelector('.profile__add-button');
+const newPlace = document.querySelector('.popup_card-add')
+const popupClose = document.querySelector(".popup__close_card-add");
+
+const toggleOpenPopupNewPlace = () => {
+	newPlace.classList.toggle('popup_opened');
+}
+
+const handlerOpenAddButtonClick = () => {
+	toggleOpenPopupNewPlace();
+}
+
+const handlerCloseAddButtonClick = () => {
+	toggleOpenPopupNewPlace();
+}
+
+addButton.addEventListener('click', handlerOpenAddButtonClick);
+popupClose.addEventListener('click', handlerCloseAddButtonClick);

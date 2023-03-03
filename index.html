@@ -15,11 +15,7 @@
   <body>
     <div class="page">
       <header class="header">
-        <img
-          class="header__logo"
-          src="./images/Vector.svg"
-          alt="Логотип"
-        />
+        <img class="header__logo" src="./images/Vector.svg" alt="Логотип" />
       </header>
       <main class="main">
         <section class="profile">
@@ -39,73 +35,20 @@
           </div>
           <button type="button" class="profile__add-button"></button>
         </section>
-        <section class="elements">
-          <div class="element">
-            <img
-              class="element__image"
-              src="./images/Belukha.jpg"
-              alt="гора Белуха"
-            />
-            <div class="element__container">
-              <h2 class="element__title">Белуха</h2>
-              <button type="button" class="element__like-button"></button>
-            </div>
-          </div>
-          <div class="element">
-            <img
-              class="element__image"
-              src="./images/Beshtau.jpg"
-              alt="гора Бештау"
-            />
-            <div class="element__container">
-              <h2 class="element__title">Бештау</h2>
-              <button type="button" class="element__like-button"></button>
-            </div>
-          </div>
-          <div class="element">
-            <img
-              class="element__image"
-              src="./images/Dombai.jpg"
-              alt="горы Домбая"
-            />
-            <div class="element__container">
-              <h2 class="element__title">Домбай</h2>
-              <button type="button" class="element__like-button"></button>
-            </div>
-          </div>
-          <div class="element">
-            <img
-              class="element__image"
-              src="./images/Dykhtau.jpg"
-              alt="гора Дыхтау"
-            />
-            <div class="element__container">
-              <h2 class="element__title">Дыхтау</h2>
-              <button type="button" class="element__like-button"></button>
-            </div>
-          </div>
-          <div class="element">
-            <img
-              class="element__image"
-              src="./images/Kazbek.jpg"
-              alt="гора Казбек"
-            />
-            <div class="element__container">
-              <h2 class="element__title">Казбек</h2>
-              <button type="button" class="element__like-button"></button>
-            </div>
-          </div>
-          <ar class="element">
-            <img
-              class="element__image"
-              src="./images/Shhara.jpg"
-              alt="гора Шхара"
-            />
-            <div class="element__container">
-              <h2 class="element__title">Шхара</h2>
-              <button type="button" class="element__like-button"></button>
-            </div>
-          </ar>
+        <section class="elements-container">
+          <ul class="elements">
+          </ul>
+          <template class="elements-template" id="card-template">
+            <li class="elements__card">
+              <img src="#" class="elements__image" alt="#" />
+              <div class="elements__title-wrapper">
+                <h2 class="elements__title"></h2>
+                <div class="elements__like-wrapper">
+                  <button type="button" class="elements__like-button"></button>
+                </div>
+              </div>
+            </li>
+          </template>
         </section>
       </main>
       <footer class="footer">
@@ -121,7 +64,7 @@
               class="popup__input popup__input_type_name"
               type="text"
               placeholder="Имя"
-              />
+            />
             <input
               name="user_about"
               class="popup__input popup__input_type_about"

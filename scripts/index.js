@@ -101,3 +101,22 @@ const handlerCloseAddButtonClick = () => {
 
 addButton.addEventListener('click', handlerOpenAddButtonClick);
 popupClose.addEventListener('click', handlerCloseAddButtonClick);
+
+const nameInput = document.querySelector('.popup__input_name');
+const urlInput = document.querySelector('.popup__input_url');
+
+const formsElement = document.querySelector('.popup__forms');
+
+const addCard = (evt) => {
+	evt.preventDefault();
+
+	elementsList.prepend(renderCard({
+		name: nameInput.value,
+		link: urlInput.value,
+	  }));
+
+	  evt.target.reset();
+	  toggleOpenPopupNewPlace();
+}
+
+formsElement.addEventListener('submit', addCard);

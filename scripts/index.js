@@ -59,6 +59,25 @@ const initialCards = [
   }
 ];
 
+const addButton = document.querySelector('.profile__add-button');
+const newPlace = document.querySelector('.popup_card-add')
+const popupClose = document.querySelector(".popup__close_card-add");
+
+const toggleOpenPopupNewPlace = () => {
+	newPlace.classList.toggle('popup_opened');
+}
+
+const handlerOpenAddButtonClick = () => {
+	toggleOpenPopupNewPlace();
+}
+
+const handlerCloseAddButtonClick = () => {
+	toggleOpenPopupNewPlace();
+}
+
+addButton.addEventListener('click', handlerOpenAddButtonClick);
+popupClose.addEventListener('click', handlerCloseAddButtonClick);
+
 const cardsContainer = document.querySelector(".elements");
 const cardTemplate = document.querySelector('#card-template').content;
 
@@ -86,28 +105,15 @@ function renderCard({ name, link }) {
   }
 
   likeButton.addEventListener('click', likeActive);
+
+  const trashButton = cardElement.querySelector('.elements__trash');
+  trashActive = () => {
+	  cardElement.remove();
+  }
+  trashButton.addEventListener('click', trashActive);
 }
 
 render();
-
-const addButton = document.querySelector('.profile__add-button');
-const newPlace = document.querySelector('.popup_card-add')
-const popupClose = document.querySelector(".popup__close_card-add");
-
-const toggleOpenPopupNewPlace = () => {
-	newPlace.classList.toggle('popup_opened');
-}
-
-const handlerOpenAddButtonClick = () => {
-	toggleOpenPopupNewPlace();
-}
-
-const handlerCloseAddButtonClick = () => {
-	toggleOpenPopupNewPlace();
-}
-
-addButton.addEventListener('click', handlerOpenAddButtonClick);
-popupClose.addEventListener('click', handlerCloseAddButtonClick);
 
 const nameInput = document.querySelector('.popup__input_name');
 const urlInput = document.querySelector('.popup__input_url');

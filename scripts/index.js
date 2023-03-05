@@ -132,4 +132,60 @@ const addCard = (evt) => {
 	  toggleOpenPopupNewPlace();
 }
 
-formsElement.addEventListener('submit', addCard, popupClose);
+formsElement.addEventListener('submit', addCard, handlerCloseAddButtonClick);
+
+
+
+
+
+/***********************************************************************************************************************/
+function displayImagePopup(name, link) {
+  const popupZoomImage = document.querySelector(".popup_zoom-image");
+
+  const imgElement = popupZoomImage.querySelector('.popup__image');
+  imgElement.src = link;
+  imgElement.alt = name;
+
+  const captionElement = popupZoomImage.querySelector('.popup__caption');
+  captionElement.textContent = name;
+
+  openPopup(popupZoomImage);
+}
+
+/***********************************************************************************************************************/
+
+function initDisplayImagePopup() {
+  const popupZoomImage = document.querySelector(".popup_zoom-image");
+  const closeButton = popupZoomImage.querySelector('.popup__close-button');
+  closeButton.addEventListener("click", () => {
+    closePopup(popupZoomImage);
+  });
+  popupZoomImage.addEventListener("click", (evt) => { closeOnOverlayClick(evt); });
+}
+
+/*const popupPhotoCard = document.querySelector(".popup_zoom-image");
+const popupPhotoImg = popupPhotoCard.querySelector(".popup__image");
+const popupCaption = popupPhotoCard.querySelector(".popup__caption");
+
+function openPopupPhoto(name, link) {
+  popupPhotoImg.src = link;
+  popupPhotoImg.alt = name;
+  popupCaption.textContent = name;
+
+  openPopup(popupPhotoCard);
+}
+
+
+
+popupCaption.addEventListener(openPopupPhoto, selectorTemplate);
+
+const closePopupByClickOnOverlay = function (evt) {
+  console.log(evt.target);
+  console.log(evt.currentTarget);
+
+  if (evt.target === evt.currentTarget) {
+    closePopup(evt.target);
+  }
+};
+
+popupPhotoCard.addEventListener("click", (evt) => { closePopupByClickOnOverlay(evt); });*/

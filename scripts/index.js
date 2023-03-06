@@ -1,5 +1,6 @@
 const cardsContainer = document.querySelector(".elements");
 const cardTemplate = document.querySelector('#card-template').content;
+const cards = document.querySelector('.elements-container');
  
 const openEditedPopup = document.querySelector(".profile__edit-button");
 const popupProfile = document.querySelector(".popup-profile");
@@ -109,16 +110,16 @@ const handlerCloseAddButtonClick = () => {
 const addCard = (evt) => {
 	evt.preventDefault();
  
-	renderCard({
+	cards.prepend(renderCard({
 		name: nameInput.value,
 		link: urlInput.value,
-	  });
+	  }));
  
 	  evt.target.reset();
 	  toggleOpenPopupNewPlace();
 }
- 
-function renderCard({ name, link }) {
+
+function createCard({name, link,}) {
   const cardElement = cardTemplate.querySelector(".elements__card").cloneNode(true);
   const trashButton = cardElement.querySelector('.elements__trash');
   const likeButton = cardElement.querySelector('.elements__like-button');
@@ -131,8 +132,11 @@ function renderCard({ name, link }) {
   trashButton.addEventListener('click', toggleTrashActive(cardElement));
   likeButton.addEventListener('click', toggleLikeButton(likeButton));
   cardImage.addEventListener('click', openImagePopup(name, link));
- 
-  cardsContainer.prepend(cardElement);
+  return cardElement;
+}
+
+function renderCard({ name, link }) {
+  cardsContainer.append(createCard({name, link}));
 }
  
 function render() {

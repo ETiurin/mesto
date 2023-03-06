@@ -3,16 +3,17 @@ const cardTemplate = document.querySelector('#card-template').content;
  
 const openEditedPopup = document.querySelector(".profile__edit-button");
 const popupProfile = document.querySelector(".popup-profile");
-const popupBtnClose = document.querySelector(".popup__close");
-const submitBtn = document.querySelector(".popup__button");
+const popupButtonClose = document.querySelector(".popup__close");
+const submitButton = document.querySelector(".popup__button");
 const profileName = document.querySelector(".profile__name");
 const profileAbout = document.querySelector(".profile__about");
 const userNameInput = document.querySelector(".popup__input_type_name");
 const profileAboutInput = document.querySelector(".popup__input_type_about");
+const inputsElement = document.querySelector('.popup__inputs');
  
-const addBtn = document.querySelector('.profile__add-button');
+const addButton = document.querySelector('.profile__add-button');
 const newPlace = document.querySelector('.popup_card-add')
-const popupCloseCard = document.querySelector(".popup__close_card-add");
+const popupClose = document.querySelector(".popup__close_card-add");
 const nameInput = document.querySelector('.popup__input_name');
 const urlInput = document.querySelector('.popup__input_url');
 const formsElement = document.querySelector('.popup__forms');
@@ -51,15 +52,16 @@ const initialCards = [
 
 const openPopup = (popup) => {
   popupProfile.classList.add('popup_opened');
-};
+}; 
 
 openEditedPopup.addEventListener('click', function() {
+  openPopup(popupProfile);
   userNameInput.value = profileName.textContent;
   profileAboutInput.value = profileAbout.textContent;
 });
- 
+
 const closePopup = (popup) => {
-  popupProfile.classList.remove('popup_opened');
+  popupProfile.classList.remove("popup_opened")
 };
 
 const toggleLikeButton = (likeButton) => () => {
@@ -138,11 +140,11 @@ function render() {
 }
  
 openEditedPopup.addEventListener("click", openPopup);
-popupBtnClose.addEventListener("click", closePopup);
-submitBtn.addEventListener("submit", editinProfileName);
+popupButtonClose.addEventListener("click", closePopup);
+inputsElement.addEventListener("submit", editinProfileName);
  
-addBtn.addEventListener('click', handlerOpenAddButtonClick);
-popupCloseCard.addEventListener('click', handlerCloseAddButtonClick);
+addButton.addEventListener('click', handlerOpenAddButtonClick);
+popupClose.addEventListener('click', handlerCloseAddButtonClick);
 formsElement.addEventListener('submit', addCard);
  
 imageCloseButton.addEventListener('click', closeImagePopup);

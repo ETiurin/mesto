@@ -39,7 +39,7 @@
           <ul class="elements"></ul>
           <template class="elements-template" id="card-template">
             <li class="elements__card">
-              <img src="#" class="elements__image" alt="#" />
+              <img src="#" class="elements__image" alt="Фотография места" />
               <button type="button" class="elements__trash"></button>
               <div class="elements__title-wrapper">
                 <h2 class="elements__title"></h2>
@@ -54,11 +54,11 @@
       <footer class="footer">
         <p class="footer__copyright">&copy;&nbsp;2023&nbsp;Mesto&nbsp;Russia</p>
       </footer>
-      <div class="popup">
+      <div class="popup popup-profile">
         <div class="popup__container">
           <button type="button" class="popup__close"></button>
           <h2 class="popup__title">Редактировать профиль</h2>
-          <div class="popup__inputs">
+          <form class="popup__inputs">
             <input
               name="user_name"
               class="popup__input popup__input_type_name"
@@ -71,7 +71,7 @@
               type="text"
               placeholder="О cебе"
             />
-          </div>
+          </form>
           <button class="popup__button" type="submit">Сохранить</button>
         </div>
       </div>

@@ -2,17 +2,17 @@ const cardsContainer = document.querySelector(".elements");
 const cardTemplate = document.querySelector('#card-template').content;
  
 const openEditedPopup = document.querySelector(".profile__edit-button");
-const popupContainer = document.querySelector(".popup");
-const popupButtonClose = document.querySelector(".popup__close");
-const submitButton = document.querySelector(".popup__button");
+const popupProfile = document.querySelector(".popup-profile");
+const popupBtnClose = document.querySelector(".popup__close");
+const submitBtn = document.querySelector(".popup__button");
 const profileName = document.querySelector(".profile__name");
 const profileAbout = document.querySelector(".profile__about");
 const userNameInput = document.querySelector(".popup__input_type_name");
 const profileAboutInput = document.querySelector(".popup__input_type_about");
  
-const addButton = document.querySelector('.profile__add-button');
+const addBtn = document.querySelector('.profile__add-button');
 const newPlace = document.querySelector('.popup_card-add')
-const popupClose = document.querySelector(".popup__close_card-add");
+const popupCloseCard = document.querySelector(".popup__close_card-add");
 const nameInput = document.querySelector('.popup__input_name');
 const urlInput = document.querySelector('.popup__input_url');
 const formsElement = document.querySelector('.popup__forms');
@@ -48,15 +48,18 @@ const initialCards = [
     link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/baikal.jpg'
   }
 ];
- 
-const openPopup = () => {
+
+const openPopup = (popup) => {
+  popupProfile.classList.add('popup_opened');
+};
+
+openEditedPopup.addEventListener('click', function() {
   userNameInput.value = profileName.textContent;
   profileAboutInput.value = profileAbout.textContent;
-  popupContainer.classList.add("popup_opened")
-};
+});
  
-const closePopup = () => {
-  popupContainer.classList.remove("popup_opened")
+const closePopup = (popup) => {
+  popupProfile.classList.remove('popup_opened');
 };
 
 const toggleLikeButton = (likeButton) => () => {
@@ -135,11 +138,11 @@ function render() {
 }
  
 openEditedPopup.addEventListener("click", openPopup);
-popupButtonClose.addEventListener("click", closePopup);
-submitButton.addEventListener("click", editinProfileName);
+popupBtnClose.addEventListener("click", closePopup);
+submitBtn.addEventListener("submit", editinProfileName);
  
-addButton.addEventListener('click', handlerOpenAddButtonClick);
-popupClose.addEventListener('click', handlerCloseAddButtonClick);
+addBtn.addEventListener('click', handlerOpenAddButtonClick);
+popupCloseCard.addEventListener('click', handlerCloseAddButtonClick);
 formsElement.addEventListener('submit', addCard);
  
 imageCloseButton.addEventListener('click', closeImagePopup);

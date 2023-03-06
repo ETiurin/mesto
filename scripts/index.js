@@ -9,7 +9,6 @@ const profileName = document.querySelector(".profile__name");
 const profileAbout = document.querySelector(".profile__about");
 const userNameInput = document.querySelector(".popup__input_type_name");
 const profileAboutInput = document.querySelector(".popup__input_type_about");
-const inputsElement = document.querySelector(".popup__inputs");
  
 const addButton = document.querySelector('.profile__add-button');
 const newPlace = document.querySelector('.popup_card-add')
@@ -17,6 +16,7 @@ const popupCloseCard = document.querySelector(".popup__close_card-add");
 const nameInput = document.querySelector('.popup__input_name');
 const urlInput = document.querySelector('.popup__input_url');
 const formsElement = document.querySelector('.popup__forms');
+const inputsElement = document.querySelector('.elements-container');
  
 const popupZoomImage = document.querySelector(".popup_zoom-image");
 const imageCloseButton = popupZoomImage.querySelector('.popup__close_zoom-image');
@@ -108,10 +108,10 @@ const handlerCloseAddButtonClick = () => {
 const addCard = (evt) => {
 	evt.preventDefault();
  
-	initialCards.append(renderCard({
+	renderCard({
 		name: nameInput.value,
 		link: urlInput.value,
-	  }));
+	  });
  
 	  evt.target.reset();
 	  toggleOpenPopupNewPlace();
@@ -131,7 +131,7 @@ function renderCard({ name, link }) {
   likeButton.addEventListener('click', toggleLikeButton(likeButton));
   cardImage.addEventListener('click', openImagePopup(name, link));
  
-  cardsContainer.prepend(cardElement);
+  cardsContainer.append(cardElement);
 }
  
 function render() {

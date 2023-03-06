@@ -1,6 +1,5 @@
 const cardsContainer = document.querySelector(".elements");
 const cardTemplate = document.querySelector('#card-template').content;
-const cards = document.querySelector('.elements-container');
  
 const openEditedPopup = document.querySelector(".profile__edit-button");
 const popupProfile = document.querySelector(".popup-profile");
@@ -50,6 +49,8 @@ const initialCards = [
     link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/baikal.jpg'
   }
 ];
+
+const cards = initialCards.reverse();
 
 const openPopup = (popup) => {
   popupProfile.classList.add('popup_opened');
@@ -110,10 +111,10 @@ const handlerCloseAddButtonClick = () => {
 const addCard = (evt) => {
 	evt.preventDefault();
  
-	cards.prepend(renderCard({
+	renderCard({
 		name: nameInput.value,
 		link: urlInput.value,
-	  }));
+	  });
  
 	  evt.target.reset();
 	  toggleOpenPopupNewPlace();
@@ -136,11 +137,11 @@ function createCard({name, link,}) {
 }
 
 function renderCard({ name, link }) {
-  cardsContainer.append(createCard({name, link}));
+  cardsContainer.prepend(createCard({name, link}));
 }
  
 function render() {
-  initialCards.forEach(renderCard);
+  cards.forEach(renderCard);
 }
  
 openEditedPopup.addEventListener("click", openPopup);

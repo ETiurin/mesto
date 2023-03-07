@@ -23,28 +23,44 @@
             <img
               class="profile__avatar"
               src="./images/image_profile.jpg"
-              alt="Жак-Ив Кусто"
+              alt="Аватар"
             />
           </div>
           <div class="profile__info">
             <div class="profile__container">
               <h1 class="profile__name">Жак-Ив&nbsp;Кусто</h1>
-              <button type="button" class="profile__edit-button"></button>
+              <button
+                type="button"
+                class="profile__edit-button"
+                aria-label="Добавить"
+              ></button>
             </div>
             <p class="profile__about">Исследователь&nbsp;океана</p>
           </div>
-          <button type="button" class="profile__add-button"></button>
+          <button
+            type="button"
+            class="profile__add-button"
+            aria-label="Добавить"
+          ></button>
         </section>
         <section class="elements-container">
           <ul class="elements"></ul>
           <template class="elements-template" id="card-template">
             <li class="elements__card">
-              <img src="#" class="elements__image" alt="Фотография места" />
-              <button type="button" class="elements__trash"></button>
+              <img src="#" class="elements__image" alt="Красивые места мира" />
+              <button
+                type="button"
+                class="elements__trash"
+                aria-label="Удалить"
+              ></button>
               <div class="elements__title-wrapper">
                 <h2 class="elements__title"></h2>
                 <div class="elements__like-wrapper">
-                  <button type="button" class="elements__like-button"></button>
+                  <button
+                    type="button"
+                    class="elements__like-button"
+                    aria-label="Нравится"
+                  ></button>
                 </div>
               </div>
             </li>
@@ -59,6 +75,7 @@
           <button
             type="button"
             class="popup__close popup__close-profile"
+            aria-label="Закрыть"
           ></button>
           <h2 class="popup__title">Редактировать профиль</h2>
           <form class="popup__form popup__form-profile">
@@ -67,14 +84,26 @@
               class="popup__input popup__input_type_name"
               type="text"
               placeholder="Имя"
+              value=" "
+              minlength="2"
+              maxlength="40"
+              required
             />
             <input
               name="user_about"
               class="popup__input popup__input_type_about"
               type="text"
               placeholder="О cебе"
+              value=" "
+              minlength="2"
+              maxlength="200"
+              required
             />
-            <button class="popup__button" type="submit">Сохранить</button>
+            <button
+              class="popup__button"
+              type="submit"
+              aria-label="Сохранить"
+            >Сохранить  </button>
           </form>
         </div>
       </div>
@@ -83,6 +112,7 @@
           <button
             type="button"
             class="popup__close popup__close_card-add"
+            aria-label="Закрыть"
           ></button>
           <h2 class="popup__title">Новое место</h2>
           <form
@@ -90,6 +120,7 @@
             method="post"
             class="popup__form popup__form_card-add"
             name="editUserImage"
+            novalidate
           >
             <input
               name="name"
@@ -97,6 +128,9 @@
               class="popup__input popup__input_name"
               id="placeName-input"
               placeholder="Название"
+              minlength="2"
+              maxlength="30"
+              required
             />
             <input
               name="link"
@@ -104,8 +138,13 @@
               class="popup__input popup__input_url"
               id="placeUrl-input"
               placeholder="Ссылка на картинку"
+              required
             />
-            <button type="submit" class="popup__button">Создать</button>
+            <button
+              type="submit"
+              class="popup__button popup__button_card-add"
+              aria-label="Сохранить"
+            >Сохранить</button>
           </form>
         </div>
       </div>
@@ -114,9 +153,10 @@
           <button
             type="button"
             class="popup__close popup__close_zoom-image"
+            aria-label="Закрыть"
           ></button>
           <figure class="popup__figure">
-            <img src="#" class="popup__image" alt="Фотография карточки" />
+            <img src="#" class="popup__image" alt="#" />
             <figcaption class="popup__caption"></figcaption>
           </figure>
         </div>

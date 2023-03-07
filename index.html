@@ -56,9 +56,12 @@
       </footer>
       <div class="popup popup-profile">
         <div class="popup__container">
-          <button type="button" class="popup__close"></button>
+          <button
+            type="button"
+            class="popup__close popup__close-profile"
+          ></button>
           <h2 class="popup__title">Редактировать профиль</h2>
-          <form class="popup__inputs">
+          <form class="popup__form popup__form-profile">
             <input
               name="user_name"
               class="popup__input popup__input_type_name"
@@ -82,32 +85,38 @@
             class="popup__close popup__close_card-add"
           ></button>
           <h2 class="popup__title">Новое место</h2>
-          <form action="#" method="post" class="popup__forms" name="editUserImage">
-            <div class="popup__inputs">
-              <input
-                name="name"
-                type="text"
-                class="popup__input popup__input_name"
-                id="placeName-input"
-                placeholder="Название"
-              />
-              <input
-                name="link"
-                type="url"
-                class="popup__input popup__input_url"
-                id="placeUrl-input"
-                placeholder="Ссылка на картинку"
-              />
-            </div>
+          <form
+            action="#"
+            method="post"
+            class="popup__form popup__form_card-add"
+            name="editUserImage"
+          >
+            <input
+              name="name"
+              type="text"
+              class="popup__input popup__input_name"
+              id="placeName-input"
+              placeholder="Название"
+            />
+            <input
+              name="link"
+              type="url"
+              class="popup__input popup__input_url"
+              id="placeUrl-input"
+              placeholder="Ссылка на картинку"
+            />
             <button type="submit" class="popup__button">Создать</button>
           </form>
         </div>
       </div>
       <div class="popup popup_zoom-image">
         <div class="popup__figure-container popup__overlay">
-          <button type="button" class="popup__close popup__close_zoom-image"></button>
+          <button
+            type="button"
+            class="popup__close popup__close_zoom-image"
+          ></button>
           <figure class="popup__figure">
-            <img src="#" class="popup__image" alt="Фотография карточки">
+            <img src="#" class="popup__image" alt="Фотография карточки" />
             <figcaption class="popup__caption"></figcaption>
           </figure>
         </div>

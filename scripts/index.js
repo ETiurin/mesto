@@ -71,11 +71,11 @@ openEditPopupButton.addEventListener('click', function() {
 
 const closePopup = (popups) => {
   popups.classList.remove('popup_opened');
-  document.addEventListener('keydown', closeByEscape);
+  document.removeEventListener('keydown', closeByEscape);
 };
 
-const overlayClosePopup = document.querySelectorAll(".popup");
-overlayClosePopup.forEach((popup) => {
+const overlayClosePopups = document.querySelectorAll(".popup");
+overlayClosePopups.forEach((popup) => {
   popup.addEventListener("click", (evt) => {
     if (evt.target === evt.currentTarget || evt.target.classList.contains("popup__close")) {
       closePopup(evt.currentTarget);
@@ -97,7 +97,7 @@ const openImagePopup = (name, link) => () => {
  
   captionPopup.textContent = name;
  
-  popupZoomImage.classList.add("popup_opened");
+  openPopup(popupZoomImage);
 }
  
 function editinProfileName(evt) {

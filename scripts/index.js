@@ -127,8 +127,9 @@ function createCard({name, link,}) {
   const cardImage = cardElement.querySelector(".elements__image");
   const cardTitle = cardElement.querySelector(".elements__title");
  
-  cardTitle.textContent = name;
   cardImage.src = link;
+  cardImage.alt = name;
+  cardTitle.textContent = name;
  
   trashButton.addEventListener('click', toggleTrashActive(cardElement));
   likeButton.addEventListener('click', toggleLikeButton(likeButton));

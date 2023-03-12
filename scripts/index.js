@@ -8,7 +8,7 @@ const opeAddPopupButton = document.querySelector('.profile__add-button');
 
 const popupProfile = document.querySelector(".popup-profile");
 const addNewCard = document.querySelector('.popup_card-add');
-const popupZoomImage = document.querySelector(".popup_zoom-image");
+const popupZoomImage = document.querySelector(".popup__zoom-image");
 const buttonSubmitAddCard = addNewCard.querySelector('.popup__button');
 
 const imagePopup = document.querySelector('.popup__image');
@@ -116,6 +116,8 @@ const addCard = (evt) => {
 	  });
 	evt.target.reset();
   closePopup(addNewCard);
+  evt.submitter.classList.add('popup__button_disabled')
+  evt.submitter.disabled = true;
 }
 
 function createCard({name, link,}) {

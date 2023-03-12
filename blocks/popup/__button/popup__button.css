@@ -1,5 +1,5 @@
 .popup__button {
-  margin: 17px auto 36px;
+  margin: 13px auto 36px;
   background-color: #000;
   color: #fff;
   font-style: normal;
@@ -18,7 +18,7 @@
   .popup__button   {
     font-size: 14px;
     line-height: 17px;
-    margin: 14px auto 24px;
+    margin: 10px auto 24px;
     min-height: 46px;
   }
 }

@@ -1,14 +1,4 @@
 .popup__input_type_error {
-  display: flex;
-  align-self: start;
-  font-style: normal;
-  font-weight: 400;
-  font-size: 12px;
-  line-height: 15px;
   color: #FF0000;
-  width: 100%;
-  padding: 0 0 12px;
-  margin: 0 auto;
-  box-sizing: border-box;
-  border-bottom: 1px solid #FF0000;
+  border-bottom-color: #FF0000;
 }

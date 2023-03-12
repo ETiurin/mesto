@@ -46,5 +46,5 @@
 @import url(../blocks/popup/__span/popup__span.css);
 @import url(../blocks/popup/__input/_type-error/popup__input_type_error.css);
 @import url(../blocks/popup/__span/_error/popup__span_error.css);
-@import url(../blocks/popup/__span/_error-visible/popup__span_error-visible.css);
+@import url(../blocks/popup/__span/_error-visible/popup__span_error_visible.css);
 @import url(../blocks/popup/__button/_disabled/popup__button_disabled.css);

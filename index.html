@@ -29,30 +29,18 @@
           <div class="profile__info">
             <div class="profile__container">
               <h1 class="profile__name">Жак-Ив&nbsp;Кусто</h1>
-              <button
-                type="button"
-                class="profile__edit-button"
-                aria-label="Добавить"
-              ></button>
+              <button class="profile__edit-button" type="button" aria-label="Добавить"></button>
             </div>
             <p class="profile__about">Исследователь&nbsp;океана</p>
           </div>
-          <button
-            type="button"
-            class="profile__add-button"
-            aria-label="Добавить"
-          ></button>
+          <button class="profile__add-button" type="button" aria-label="Добавить"></button>
         </section>
         <section class="elements-container">
           <ul class="elements"></ul>
           <template class="elements-template" id="card-template">
             <li class="elements__card">
               <img src="#" class="elements__image" alt="Красивые места мира" />
-              <button
-                type="button"
-                class="elements__trash"
-                aria-label="Удалить"
-              ></button>
+              <button class="elements__trash" type="button" aria-label="Удалить"></button>
               <div class="elements__title-wrapper">
                 <h2 class="elements__title"></h2>
                 <div class="elements__like-wrapper">
@@ -73,106 +61,36 @@
       <div class="popup popup-profile">
         <div class="popup__container">
           <button
-            type="button"
             class="popup__close popup__close-profile"
+            type="button"
             aria-label="Закрыть"
           ></button>
           <h2 class="popup__title">Редактировать профиль</h2>
-          <form class="popup__form">
-            <input
-              name="user_name"
-              id="name-input"
-              class="popup__input popup__input_type_name"
-              type="text"
-              placeholder="Имя"
-              value=" "
-              minlength="2"
-              maxlength="40"
-              required
-            />
-            <span
-              class="popup__span popup__span_error-visible popup__span_name-input-error"
-            ></span>
-            <input
-              name="user_about"
-              class="popup__input popup__input_type_about"
-              id="about-input"
-              type="text"
-              placeholder="О cебе"
-              value=" "
-              minlength="2"
-              maxlength="200"
-              required
-            />
-            <span
-              class="popup__span popup__span_error-visible popup__span_about-input-error"
-            ></span>
-            <button
-              class="popup__button popup__button_form_profile"
-              type="submit"
-              aria-label="Сохранить"
-            >
-              Сохранить
-            </button>
+          <form class="popup__form" name="EditForm" id="popup-form-profile" novalidate>
+            <input class="popup__input popup__input_type_name popup__input_type_name-profile" name="user_name" id="name-input" type="text" placeholder="Имя" value=" " minlength="2" maxlength="40" required>
+            <span class="popup__span popup__span_error-visible name-input-error"></span>
+            <input class="popup__input popup__input_type_about popup__input_type_about-profile" name="user_about" id="about-input" type="text" placeholder="О cебе" value=" " minlength="2" maxlength="200" required>
+            <span class="popup__span popup__span_error-visible about-input-error"></span>
+            <button class="popup__button popup__button_form_profile" type="submit" aria-label="Сохранить">Сохранить</button>
           </form>
         </div>
       </div>
       <div class="popup popup_card-add">
-        <div class="popup__container popup__overlay">
-          <button
-            type="button"
-            class="popup__close popup__close_card-add"
-            aria-label="Закрыть"
-          ></button>
+        <div class="popup__container">
+          <button class="popup__close popup__close_card-add" type="button" aria-label="Закрыть"></button>
           <h2 class="popup__title">Новое место</h2>
-          <form
-            action="#"
-            method="post"
-            class="popup__form"
-            name="editUserImage"
-            novalidate
-          >
-            <input
-              name="name"
-              type="text"
-              class="popup__input popup__input_name"
-              id="placeName-input"
-              placeholder="Название"
-              minlength="2"
-              maxlength="30"
-              required
-            />
-            <span
-              class="popup__span popup__span_error-visible place-input-error"
-            ></span>
-            <input
-              name="link"
-              type="url"
-              class="popup__input popup__input_url"
-              id="placeUrl-input"
-              placeholder="Ссылка на картинку"
-              required
-            />
-            <span
-              class="popup__span popup__span_error-visible link-input-error"
-            ></span>
-            <button
-              type="submit"
-              class="popup__button popup__button_disabled"
-              aria-label="Сохранить"
-            >
-              Сохранить
-            </button>
+          <form class="popup__form" name="AddForm" id="popup-add-form" novalidate>
+            <input class="popup__input popup__input_type_name popup__input_name" name="name" type="text" id="placeName-input" placeholder="Название" minlength="2" maxlength="30" value="" required>
+            <span class="popup__span popup__span_error-visible place-input-error"></span>
+            <input class="popup__input popup__input_type_about popup__input_type_about-url" name="link" type="url" id="placeUrl-input" placeholder="Ссылка на картинку"  value="" required>
+            <span class="popup__span popup__span_error-visible link-input-error"></span>
+            <button class="popup__button" type="submit" aria-label="Создать">Создать</button>
           </form>
         </div>
       </div>
       <div class="popup popup_zoom-image">
         <div class="popup__figure-container popup__overlay">
-          <button
-            type="button"
-            class="popup__close popup__close_zoom-image"
-            aria-label="Закрыть"
-          ></button>
+          <button class="popup__close popup__close_zoom-image" type="button" aria-label="Закрыть"></button>
           <figure class="popup__figure">
             <img src="#" class="popup__image" alt="#" />
             <figcaption class="popup__caption"></figcaption>
@@ -180,6 +98,7 @@
         </div>
       </div>
     </div>
-    <script src="./scripts/index.js"></script>
+    <script defer src="./scripts/validate.js"></script>
+    <script defer src="./scripts/index.js"></script>
   </body>
 </html>

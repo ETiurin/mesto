@@ -9,6 +9,7 @@ const opeAddPopupButton = document.querySelector('.profile__add-button');
 const popupProfile = document.querySelector(".popup-profile");
 const addNewCard = document.querySelector('.popup_card-add');
 const popupZoomImage = document.querySelector(".popup_zoom-image");
+const buttonSubmitAddCard = addNewCard.querySelector('.popup__button');
 
 const imagePopup = document.querySelector('.popup__image');
 const captionPopup = popupZoomImage.querySelector('.popup__caption');
@@ -20,7 +21,7 @@ const profileAbout = document.querySelector(".profile__about");
 const userNameInput = document.querySelector(".popup__input_type_name");
 const profileAboutInput = document.querySelector(".popup__input_type_about");
 const addNameInput = document.querySelector('.popup__input_name');
-const addLinkInput = document.querySelector('.popup__input_url');
+const addLinkInput = document.querySelector('.popup__input_type_about-url');
 
 const initialCards = [
   {
@@ -100,77 +101,6 @@ const openImagePopup = (name, link) => () => {
   openPopup(popupZoomImage);
 }
 
-function enableValidation(validationOptions) {
-  const formList = Array.from(document.querySelectorAll(validationOptions.formSelector));
-  formList.forEach((formElement) => {
-    setEventListeners(formElement, validationOptions);
-  });
-}
-
-function checkInputValidity(formElement, inputElement, validationOptions) {
-  if (inputElement.validity.valid === true) {
-    hideInputError(formElement, inputElement, validationOptions);
-  } else {
-    showInputError(formElement, inputElement, inputElement.validationMessage, validationOptions);
-  }
-}
-
-function showInputError(formElement, inputElement, errorMessage, validationOptions) {
-  const errorElement = formElement.querySelector(`.${inputElement.id}-error`);
-  inputElement.classList.add(validationOptions.inputErrorClass);
-  errorElement.classList.add(validationOptions.errorClass);
-  errorElement.textContent = errorMessage;
-}
-
-function hideInputError(formElement, inputElement, validationOptions) {
-  const errorElement = formElement.querySelector(`.${inputElement.id}-error`);
-  inputElement.classList.remove(validationOptions.inputErrorClass);
-  errorElement.classList.remove(validationOptions.errorClass);
-  errorElement.textContent = '';
-}
-
-function setEventListeners(formElement, validationOptions) {
-const inputList = Array.from(
-  formElement.querySelectorAll(validationOptions.inputSelector)
-);
-const buttonElement = formElement.querySelector(
-  validationOptions.submitButtonSelector
-);
-toggleButtonState(inputList, buttonElement, validationOptions);
-
-inputList.forEach((inputElement) => {
-  inputElement.addEventListener("input", () => {
-    checkInputValidity(formElement, inputElement, validationOptions);
-    toggleButtonState(inputList, buttonElement, validationOptions);
-  });
-});
-}
-
-const disableButton = (buttonElement, validationOptions) => {
-  buttonElement.classList.add(validationOptions.inactiveButtonClass);
-  buttonElement.setAttribute("disabled", true);
-};
-
-const enableButton = (buttonElement, validationOptions) => {
-  buttonElement.classList.remove(validationOptions.inactiveButtonClass);
-  buttonElement.removeAttribute("disabled");
-};
-
-const toggleButtonState = (inputList, buttonElement, validationOptions) => {
-  if (hasInvalidInput(inputList)) {
-    disableButton(buttonElement, validationOptions);
-  } else {
-    enableButton(buttonElement, validationOptions);
-  }
-};
-
-function hasInvalidInput(inputList) {
-  return inputList.some((inputElement) => {
-    return !inputElement.validity.valid;
-  });
-}
-
-
 function editinProfileName(evt) {
   evt.preventDefault();
   profileName.textContent = userNameInput.value;
@@ -180,14 +110,12 @@ function editinProfileName(evt) {
  
 const addCard = (evt) => {
 	evt.preventDefault();
- 
 	renderCard({
 		name: addNameInput.value,
 		link: addLinkInput.value,
 	  });
- 
-	  evt.target.reset();
-    closePopup(addNewCard);
+	evt.target.reset();
+  closePopup(addNewCard);
 }
 
 function createCard({name, link,}) {
@@ -218,5 +146,5 @@ function render() {
 formEditProfile.addEventListener('submit', editinProfileName);
 opeAddPopupButton.addEventListener("click", () => openPopup(addNewCard));
 addNewCard.addEventListener('submit', addCard);
- 
+  
 render();

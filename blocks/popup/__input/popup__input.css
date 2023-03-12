@@ -1,24 +1,13 @@
 .popup__input {
   font-style: normal;
-  height: 27px;
   font-weight: 400;
   font-size: 14px;
   line-height: 17px;
-  border: 0;
+  border: none;
   border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+  color: #000;
   width: 100%;
-  padding: 0 0 12px 0;
-  margin: 0 auto 29px;
+  padding: 0 0 12px;
+  margin: 0 auto;
   box-sizing: border-box;
-  max-width: 358px;
-}
-
-@media all and (max-width: 767px) {
-  .popup__input {
-    max-width: 238px;
-  }
-}
-
-.popup__input::placeholder{
-  color: #C4C4C4;
 }

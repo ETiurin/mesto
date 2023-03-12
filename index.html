@@ -78,9 +78,10 @@
             aria-label="Закрыть"
           ></button>
           <h2 class="popup__title">Редактировать профиль</h2>
-          <form class="popup__form popup__form-profile">
+          <form class="popup__form">
             <input
               name="user_name"
+              id="name-input"
               class="popup__input popup__input_type_name"
               type="text"
               placeholder="Имя"
@@ -89,9 +90,13 @@
               maxlength="40"
               required
             />
+            <span
+              class="popup__span popup__span_error-visible popup__span_name-input-error"
+            ></span>
             <input
               name="user_about"
               class="popup__input popup__input_type_about"
+              id="about-input"
               type="text"
               placeholder="О cебе"
               value=" "
@@ -99,11 +104,16 @@
               maxlength="200"
               required
             />
+            <span
+              class="popup__span popup__span_error-visible popup__span_about-input-error"
+            ></span>
             <button
-              class="popup__button"
+              class="popup__button popup__button_form_profile"
               type="submit"
               aria-label="Сохранить"
-            >Сохранить  </button>
+            >
+              Сохранить
+            </button>
           </form>
         </div>
       </div>
@@ -118,7 +128,7 @@
           <form
             action="#"
             method="post"
-            class="popup__form popup__form_card-add"
+            class="popup__form"
             name="editUserImage"
             novalidate
           >
@@ -132,6 +142,9 @@
               maxlength="30"
               required
             />
+            <span
+              class="popup__span popup__span_error-visible place-input-error"
+            ></span>
             <input
               name="link"
               type="url"
@@ -140,11 +153,16 @@
               placeholder="Ссылка на картинку"
               required
             />
+            <span
+              class="popup__span popup__span_error-visible link-input-error"
+            ></span>
             <button
               type="submit"
-              class="popup__button popup__button_card-add"
+              class="popup__button popup__button_disabled"
               aria-label="Сохранить"
-            >Сохранить</button>
+            >
+              Сохранить
+            </button>
           </form>
         </div>
       </div>

@@ -8,7 +8,7 @@ const opeAddPopupButton = document.querySelector('.profile__add-button');
 
 const popupProfile = document.querySelector(".popup-profile");
 const addNewCard = document.querySelector('.popup_card-add');
-const popupZoomImage = document.querySelector(".popup__zoom-image");
+const popupZoomImage = document.querySelector(".popup_zoom-image");
 const buttonSubmitAddCard = addNewCard.querySelector('.popup__button');
 
 const imagePopup = document.querySelector('.popup__image');

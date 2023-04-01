@@ -1,3 +1,6 @@
+import { validationOptions } from './constants.js';
+
+
 const popups = document.querySelector(".popup");
 
 const cardsContainer = document.querySelector(".elements");

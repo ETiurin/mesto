@@ -2,8 +2,6 @@ import { Card } from './Card.js';
 import  { validationOptions, initialCards } from './constants.js';
 import { FormValidator } from './FormValidator.js';
 
-const popups = document.querySelector(".popup");
-
 const cardsContainer = document.querySelector(".elements");
  
 const openEditPopupButton = document.querySelector(".profile__edit-button");
@@ -17,7 +15,6 @@ const imagePopup = document.querySelector('.popup__image');
 const captionPopup = popupZoomImage.querySelector('.popup__caption');
 
 const formEditProfile = document.querySelector('.popup__form');
-const formAddCard = document.querySelector('.popup__form_card-add');
 const profileName = document.querySelector(".profile__name");
 const profileAbout = document.querySelector(".profile__about");
 const userNameInput = document.querySelector(".popup__input_type_name");

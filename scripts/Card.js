@@ -1,22 +1,27 @@
 export class Card {
-    _cardTemplate = document.querySelector('#card-template').content;
-    
-    constructor(name, link, openPopupImage) {
+    constructor(name, link, templateSelector, openPopupImage) {
         this._name = name;
         this._link = link;
         this._openPopupImage = openPopupImage;
+        this._templateSelector = templateSelector;
 
         this._handleToggleLikeButton = this._handleToggleLikeButton.bind(this);
         this._handleToggleTrashActive = this._handleToggleTrashActive.bind(this);
         this._handleOpenPopupImage = this._handleOpenPopupImage.bind(this);
     }
 
+    _getTemplate() {
+        const cardElement = document.querySelector(this._templateSelector).content.querySelector(".elements__card").cloneNode(true);
+		return cardElement;
+	}
+
     _handleToggleLikeButton() {
         this._likeButton.classList.toggle('elements__like-button_active');
     }
-      
+    
     _handleToggleTrashActive() {
         this._cardElement.remove();
+        this._cardElement = null;
     }
 
     _handleOpenPopupImage() {
@@ -30,7 +35,7 @@ export class Card {
     }
 
     render() {
-        this._cardElement = this._cardTemplate.querySelector(".elements__card").cloneNode(true);
+        this._cardElement = this._getTemplate();
         this._trashButton = this._cardElement.querySelector('.elements__trash');
         this._likeButton = this._cardElement.querySelector('.elements__like-button');
         this._cardImage = this._cardElement.querySelector(".elements__image");

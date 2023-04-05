@@ -80,7 +80,6 @@ const addCard = (evt) => {
 		name: addNameInput.value,
 		link: addLinkInput.value,
 	  });
-	evt.target.reset();
   closePopup(addNewCard);
 }
 
@@ -100,17 +99,17 @@ function render() {
 
 function initializeForms() {
   formEditProfile.addEventListener('submit', editinProfileName);
-  opeAddPopupButton.addEventListener("click", () => {
-    formAddCardValidator.resetValidation();
-    addNewCardForm.reset();
-    openPopup(addNewCard);
-  });
   addNewCardForm.addEventListener('submit', addCard);
   openEditPopupButton.addEventListener('click', function() {
     formEditProfileValidator.resetValidation();
     openPopup(popupProfile);
     userNameInput.value = profileName.textContent;
     profileAboutInput.value = profileAbout.textContent;
+  });
+  opeAddPopupButton.addEventListener("click", () => {
+    formAddCardValidator.resetValidation();
+    addNewCardForm.reset();
+    openPopup(addNewCard);
   });
 }
 

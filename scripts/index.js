@@ -99,18 +99,18 @@ function render() {
 
 function initializeForms() {
   formEditProfile.addEventListener('submit', editinProfileName);
+  opeAddPopupButton.addEventListener("click", () => {
+    addNewCardForm.reset();
+    openPopup(addNewCard);
+  });
   addNewCardForm.addEventListener('submit', addCard);
-  openEditPopupButton.addEventListener('click', function() {
-    formEditProfileValidator.resetValidation();
+  openEditPopupButton.addEventListener('click', () => {
     openPopup(popupProfile);
     userNameInput.value = profileName.textContent;
     profileAboutInput.value = profileAbout.textContent;
   });
-  opeAddPopupButton.addEventListener("click", () => {
-    formAddCardValidator.resetValidation();
-    addNewCardForm.reset();
-    openPopup(addNewCard);
-  });
+  formAddCardValidator.resetValidation();
+  formEditProfileValidator.resetValidation();
 }
 
 render();

@@ -1,6 +1,10 @@
 import { Card } from './Card.js';
 import  { validationOptions, initialCards } from './constants.js';
 import { FormValidator } from './FormValidator.js';
+import Section from './Section.js';
+import PopupWithImage from './PopupWithImage.js';
+import PopupWithForm from './PopupWithForm.js';
+import UserInfo from './UserInfo.js';
 
 const cardsContainer = document.querySelector(".elements");
  

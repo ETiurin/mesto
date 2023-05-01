@@ -33,22 +33,6 @@ formAddCardValidator.enableValidation();
 const formEditProfileValidator = new FormValidator(validationOptions, formEditProfile);
 formEditProfileValidator.enableValidation();
 
-/*function editinProfileName(evt) {
-  evt.preventDefault();
-  profileName.textContent = userNameInput.value;
-  profileAbout.textContent = profileAboutInput.value;
-  closePopup(popupProfile);
-}
- 
-const addCard = (evt) => {
-	evt.preventDefault();
-	renderCard({
-		name: addNameInput.value,
-		link: addLinkInput.value,
-	  });
-  closePopup(addNewCard);
-}*/
-
 const createCard = (openPopupImage) => ({ name, link }) => {
   const card = new Card(name, link, '#card-template', openPopupImage);
   return card.render();
@@ -65,18 +49,24 @@ function render() {
 }
 
 function initializeForms() {
-  const popupAddCardForm= new PopupWithForm(popupProfile);
-  opeAddPopupButton.addEventListener("click", () => {
+  const popupAddCardForm= new PopupWithForm(profileName, profileAbout); /* я передаю не те селекторы видимо */
+  opeAddPopupButton.setEventListeners("click", () => {
     addNewCardForm.reset();
     popupAddCardForm.open();
   });
 
-  const popupEditCardForm = new PopupWithForm(popupProfile);
-  openEditPopupButton.addEventListener('click', () => {
+  const popupEditCardForm = new PopupWithForm(addNameInput, addLinkInput); /* я передаю не те селекторы видимо */
+  openEditPopupButton.setEventListeners('click', () => {
     popupEditCardForm.open();
     userNameInput.value = profileName.textContent;
     profileAboutInput.value = profileAbout.textContent;
   });
+
+  /*const userInfo = new UserInfo({
+    nameSelector: '.profile__name',
+    infoSelector: '.profile__about',
+  });*/
+
   
   formAddCardValidator.resetValidation();
   formEditProfileValidator.resetValidation();

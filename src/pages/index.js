@@ -1,29 +1,25 @@
-import { Card } from './Card.js';
-import  { validationOptions, initialCards } from './constants.js';
-import { FormValidator } from './FormValidator.js';
-import Section from './Section.js';
-import PopupWithImage from './PopupWithImage.js';
-import PopupWithForm from './PopupWithForm.js';
-import UserInfo from './UserInfo.js';
-
-const cardsContainer = document.querySelector(".elements");
-
-const openEditPopupButton = document.querySelector(".profile__edit-button");
-const opeAddPopupButton = document.querySelector('.profile__add-button');
-
-const popupProfile = document.querySelector(".popup-profile");
-const addNewCard = document.querySelector('.popup_card-add');
-const addNewCardForm = document.querySelector('#popup-add-form');
-
-const popupZoomImage = document.querySelector(".popup_zoom-image");
-
-const formEditProfile = document.querySelector('.popup__form');
-const profileName = document.querySelector(".profile__name");
-const profileAbout = document.querySelector(".profile__about");
-const userNameInput = document.querySelector(".popup__input_type_name");
-const profileAboutInput = document.querySelector(".popup__input_type_about");
-const addNameInput = document.querySelector('.popup__input_name');
-const addLinkInput = document.querySelector('.popup__input_type_about-url');
+import { Card } from '../components/Card.js';
+import  { 
+  validationOptions,
+  initialCards,
+  cardsContainer,
+  openEditPopupButton,
+  opeAddPopupButton,
+  popupProfile,
+  addNewCard,
+  addNewCardForm,
+  popupZoomImage,
+  formEditProfile,
+  profileName,
+  profileAbout,
+  userNameInput,
+  profileAboutInput
+} from '../utils/constants.js';
+import { FormValidator } from '../components/FormValidator.js';
+import Section from '../components/Section.js';
+import PopupWithImage from '../components/PopupWithImage.js';
+import PopupWithForm from '../components/PopupWithForm.js';
+import UserInfo from '../components/UserInfo.js';
 
 const cards = initialCards.reverse();
 

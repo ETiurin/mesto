@@ -9,20 +9,19 @@
     />
     <meta name="keywords" content="html, css, javascript" />
     <meta name="author" content="Евгений Тюрин" />
-    <link rel="stylesheet" href="./pages/index.css" />
     <title>Место</title>
   </head>
   <body>
     <div class="page">
       <header class="header">
-        <img class="header__logo" src="./images/Vector.svg" alt="Логотип" />
+        <img class="header__logo" src="<%=require('./images/Vector.svg')%>" alt="Логотип" />
       </header>
       <main class="main">
         <section class="profile">
           <div class="profile__avatar-wrapper">
             <img
               class="profile__avatar"
-              src="./images/image_profile.jpg"
+              src="<%=require('./images/image_profile.jpg')%>"
               alt="Аватар"
             />
           </div>
@@ -98,6 +97,5 @@
         </div>
       </div>
     </div>
-    <script defer src="./pages/index.js" type="module"></script>
   </body>
 </html>

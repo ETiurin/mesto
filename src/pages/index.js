@@ -57,7 +57,6 @@ const popupAddCardForm = new PopupWithForm(addNewCard, handleAddCard);
 popupAddCardForm.setEventListeners();
 
 opeAddPopupButton.addEventListener("click", () => {
-  addNewCardForm.reset();
   popupAddCardForm.open();
 });
 
@@ -72,6 +71,7 @@ const popupEditCardForm = new PopupWithForm(popupProfile, handleEditProfile);
 popupEditCardForm.setEventListeners();
 openEditPopupButton.addEventListener('click', () => {
   popupEditCardForm.open();
+  
   const { name, about } = userInfo.getUserInfo();
 
   userNameInput.value = name;

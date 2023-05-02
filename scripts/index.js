@@ -7,7 +7,7 @@ import PopupWithForm from './PopupWithForm.js';
 import UserInfo from './UserInfo.js';
 
 const cardsContainer = document.querySelector(".elements");
- 
+
 const openEditPopupButton = document.querySelector(".profile__edit-button");
 const opeAddPopupButton = document.querySelector('.profile__add-button');
 
@@ -27,6 +27,11 @@ const addLinkInput = document.querySelector('.popup__input_type_about-url');
 
 const cards = initialCards.reverse();
 
+const userInfo = new UserInfo({
+  profileName,
+  profileAbout,
+});
+
 const formAddCardValidator = new FormValidator(validationOptions, addNewCard);
 formAddCardValidator.enableValidation();
 
@@ -37,40 +42,44 @@ const createCard = (openPopupImage) => ({ name, link }) => {
   const card = new Card(name, link, '#card-template', openPopupImage);
   return card.render();
 }
- 
-function render() {
-  const popupImage = new PopupWithImage(popupZoomImage);
-  popupImage.setEventListeners();
-  const handleCardClick = (name, link) => {
-    popupImage.open(name, link);
-  }
-  const section = new Section( { items: cards, renderer: createCard(handleCardClick) }, cardsContainer);
-  section.renderItems();
+
+const popupImage = new PopupWithImage(popupZoomImage);
+popupImage.setEventListeners();
+const handleCardClick = (name, link) => {
+  popupImage.open(name, link);
+}
+const section = new Section( { items: cards, renderer: createCard(handleCardClick) }, cardsContainer);
+
+section.renderItems();
+
+const handleAddCard = (values) => {
+  section.addItem(createCard(handleCardClick)(values));
 }
 
-function initializeForms() {
-  const popupAddCardForm= new PopupWithForm(profileName, profileAbout); /* я передаю не те селекторы видимо */
-  opeAddPopupButton.setEventListeners("click", () => {
-    addNewCardForm.reset();
-    popupAddCardForm.open();
-  });
+const popupAddCardForm = new PopupWithForm(addNewCard, handleAddCard);
+popupAddCardForm.setEventListeners();
 
-  const popupEditCardForm = new PopupWithForm(addNameInput, addLinkInput); /* я передаю не те селекторы видимо */
-  openEditPopupButton.setEventListeners('click', () => {
-    popupEditCardForm.open();
-    userNameInput.value = profileName.textContent;
-    profileAboutInput.value = profileAbout.textContent;
-  });
+opeAddPopupButton.addEventListener("click", () => {
+  addNewCardForm.reset();
+  popupAddCardForm.open();
+});
 
-  /*const userInfo = new UserInfo({
-    nameSelector: '.profile__name',
-    infoSelector: '.profile__about',
-  });*/
-
-  
-  formAddCardValidator.resetValidation();
-  formEditProfileValidator.resetValidation();
+const handleEditProfile = ({ user_name, user_about }) => {
+  userInfo.setUserInfo({
+    name: user_name,
+    about: user_about,
+  })
 }
 
-render();
-initializeForms();
+const popupEditCardForm = new PopupWithForm(popupProfile, handleEditProfile);
+popupEditCardForm.setEventListeners();
+openEditPopupButton.addEventListener('click', () => {
+  popupEditCardForm.open();
+  const { name, about } = userInfo.getUserInfo();
+
+  userNameInput.value = name;
+  profileAboutInput.value = about;
+});
+
+formAddCardValidator.resetValidation();
+formEditProfileValidator.resetValidation();

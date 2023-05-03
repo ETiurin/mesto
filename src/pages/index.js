@@ -7,7 +7,6 @@ import  {
   opeAddPopupButton,
   popupProfile,
   addNewCard,
-  addNewCardForm,
   popupZoomImage,
   formEditProfile,
   profileName,
@@ -58,6 +57,7 @@ popupAddCardForm.setEventListeners();
 
 opeAddPopupButton.addEventListener("click", () => {
   popupAddCardForm.open();
+  formAddCardValidator.resetValidation();
 });
 
 const handleEditProfile = ({ user_name, user_about }) => {
@@ -76,7 +76,5 @@ openEditPopupButton.addEventListener('click', () => {
 
   userNameInput.value = name;
   profileAboutInput.value = about;
+  formEditProfileValidator.resetValidation();
 });
-
-formAddCardValidator.resetValidation();
-formEditProfileValidator.resetValidation();

@@ -41,7 +41,6 @@ export const opeAddPopupButton = document.querySelector('.profile__add-button');
 
 export const popupProfile = document.querySelector(".popup-profile");
 export const addNewCard = document.querySelector('.popup_card-add');
-export const addNewCardForm = document.querySelector('#popup-add-form');
 
 export const popupZoomImage = document.querySelector(".popup_zoom-image");
 

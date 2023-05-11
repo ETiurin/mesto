@@ -1,22 +1,18 @@
 export class Card {
   constructor(
-    {item, handleCardClick, handleCardLike, deleteCard, userID},
+    {item, handleCardClick, handleCardLike, deleteCard, userId},
      templateSelector
   ) {
     this._name = item.name;
     this._link = item.link;
+    this._owner = item.owner;
     this._handleCardClick = handleCardClick;
     this._handleCardLike = handleCardLike;
-    this.handleCardDelete = handleCardDelete;
+    this._deleteCardApi = deleteCard;
     this._likes = item.likes;
     this._cardId = item._id;
     this._userId = userId;
-    this._deleteCard = deleteCard;
     this._templateSelector = templateSelector;
-
-    /*this._handleToggleLikeButton = this._handleToggleLikeButton.bind(this);
-    this._handleToggleTrashActive = this._handleToggleTrashActive.bind(this);
-    this._handleOpenPopupImage = this._handleOpenPopupImage.bind(this);*/
   }
 
   _getTemplate() {
@@ -27,7 +23,7 @@ export class Card {
     return cardElement;
   }
 
-  /*_handleToggleLikeButton*/like(item) {
+  like(item) {
     this._numberLikes.textContent = item;
     this._likeButton.classList.toggle("elements__like-button_active");
   }
@@ -37,8 +33,8 @@ export class Card {
   }
 
   showLike() {
-    this._likes.forEach((cardElement) => {
-      if (cardElement._id === this._userId) {
+    this._likes.forEach((likeInfo) => {
+      if (likeInfo._id === this._userId) {
         this._likeButton.classList.add("elements__like-button_active");
       }
     });
@@ -48,7 +44,6 @@ export class Card {
     this._cardElement.remove();
     this._cardElement = null;
     this._deleteCard(this._cardId);
-    this._id;
   }
 
   _handleOpenPopupImage() {
@@ -57,7 +52,7 @@ export class Card {
 
   _addEventListeners() {
     this._trashButton.addEventListener("click", this._handleToggleTrashActive);
-    this._likeButton.addEventListener("click", this._handleToggleLikeButton);
+    this._likeButton.addEventListener("click", this.like);
     this._cardImage.addEventListener("click", this._handleOpenPopupImage);
   }
 
@@ -74,7 +69,7 @@ export class Card {
     this._cardTitle.textContent = this._name;
     this._numberLikes.textContent = this._likes.length;
 
-    if (this._userId !== this._cardElement.owner._id) {
+    if (this._userId !== this._owner._id) {
       this._trashButton.style.display = `none`;
     }
 

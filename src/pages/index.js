@@ -48,7 +48,7 @@ formEditProfileValidator.enableValidation();
     const card = new Card(
       {
         item: item,
-        /*userId: userId,*/
+        userId: userId,
         handleCardClick: openPopupImage,
         deleteCard: api.deleteCard,
         handleCardLike: (thisCardId) => {
@@ -83,7 +83,7 @@ const handleCardClick = (name, link) => {
 
 Promise.all([api.getProfileInfo(), api.getStartedCards()])
   .then(([info, cardItems]) => {
-    console.log(cardItems);
+    console.log(info);
     userId = info._id;
     const section = new Section(
       { items: cardItems, renderer: createCard(handleCardClick) },      
@@ -97,8 +97,10 @@ Promise.all([api.getProfileInfo(), api.getStartedCards()])
   });
 
 const handleAddCard = (values) => {
-  section.addItem(createCard(handleCardClick)(values));
-};
+  api.addCard(values).then((item) => {
+    section.addItem(createCard(handleCardClick)(item));
+  })
+}
 
 const popupAddCardForm = new PopupWithForm(addNewCard, handleAddCard);
 popupAddCardForm.setEventListeners();

@@ -7,7 +7,6 @@ export default class Section {
 
   renderItems() {
     this._initialCards.forEach(item => {
-      console.log(item);
       this._container.prepend(this._renderer(item));
     });
   }

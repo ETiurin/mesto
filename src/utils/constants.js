@@ -47,5 +47,6 @@ export const popupZoomImage = document.querySelector(".popup_zoom-image");
 export const formEditProfile = document.querySelector('.popup__form');
 export const profileName = document.querySelector(".profile__name");
 export const profileAbout = document.querySelector(".profile__about");
+export const profileAvatar = document.querySelector(".profile__avatar");
 export const userNameInput = document.querySelector(".popup__input_type_name");
 export const profileAboutInput = document.querySelector(".popup__input_type_about");

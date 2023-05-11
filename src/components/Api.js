@@ -40,23 +40,17 @@ const token = {
       return fetch(`${this._serverAdress}/users/me`, {
         method: "PATCH",
         headers: this._headers,
-        body: JSON.stringify({
-          name: profileInfo["name"],
-          about: profileInfo["profession"],
-        }),
+        body: JSON.stringify(profileInfo),
       }).then((res) => {
         return this._serverResponse(res);
       });
     }
   
-    addCard(cardInfo) {
+    addCard(values) {
       return fetch(`${this._serverAdress}/cards`, {
         method: "POST",
         headers: this._headers,
-        body: JSON.stringify({
-          name: cardInfo["input-name"],
-          link: cardInfo["input-url"],
-        }),
+        body: JSON.stringify(values),
       }).then((res) => {
         return this._serverResponse(res);
       });

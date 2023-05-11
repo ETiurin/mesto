@@ -11,6 +11,7 @@ import {
   formEditProfile,
   profileName,
   profileAbout,
+  profileAvatar,
   userNameInput,
   profileAboutInput,
 } from "../utils/constants.js";
@@ -22,15 +23,15 @@ import UserInfo from "../components/UserInfo.js";
 import { Api, token } from "../components/Api.js";
 import "./index.css";
 
-const cards = initialCards.reverse();
-
 const api = new Api(token);
 
 let userId;
+let section;
 
 const userInfo = new UserInfo({
   profileName,
   profileAbout,
+  profileAvatar
 });
 
 const formAddCardValidator = new FormValidator(validationOptions, addNewCard);
@@ -50,7 +51,7 @@ formEditProfileValidator.enableValidation();
         item: item,
         userId: userId,
         handleCardClick: openPopupImage,
-        deleteCard: api.deleteCard,
+        handleDeleteCard: (id) => api.deleteCard(id),
         handleCardLike: (thisCardId) => {
           if (!card.isButtonLiked()) {
             api.setCardLike(thisCardId).then((res) => {
@@ -83,9 +84,9 @@ const handleCardClick = (name, link) => {
 
 Promise.all([api.getProfileInfo(), api.getStartedCards()])
   .then(([info, cardItems]) => {
-    console.log(info);
+    userInfo.setUserInfo(info);
     userId = info._id;
-    const section = new Section(
+    section = new Section(
       { items: cardItems, renderer: createCard(handleCardClick) },      
       cardsContainer
     );
@@ -111,11 +112,9 @@ opeAddPopupButton.addEventListener("click", () => {
 });
 
 const handleEditProfile = ({ user_name, user_about }) => {
-  userInfo.setUserInfo({
-    name: user_name,
-    about: user_about,
-  });
-};
+  api.editingProfile({ name: user_name, about: user_about, }).then((info) => {
+    userInfo.setUserInfo(info);
+})};
 
 const popupEditCardForm = new PopupWithForm(popupProfile, handleEditProfile);
 popupEditCardForm.setEventListeners();

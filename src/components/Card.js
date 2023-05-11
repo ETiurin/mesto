@@ -1,18 +1,21 @@
 export class Card {
   constructor(
-    {item, handleCardClick, handleCardLike, deleteCard, userId},
-     templateSelector
+    { item, handleCardClick, handleCardLike, handleDeleteCard, userId },
+    templateSelector
   ) {
     this._name = item.name;
     this._link = item.link;
     this._owner = item.owner;
     this._handleCardClick = handleCardClick;
     this._handleCardLike = handleCardLike;
-    this._deleteCardApi = deleteCard;
+    this._handleDeleteCard = handleDeleteCard;
     this._likes = item.likes;
     this._cardId = item._id;
     this._userId = userId;
     this._templateSelector = templateSelector;
+
+    this._handleOpenPopupImage = this._handleOpenPopupImage.bind(this);
+    this._handleToggleTrashActive = this._handleToggleTrashActive.bind(this);
   }
 
   _getTemplate() {
@@ -43,7 +46,7 @@ export class Card {
   _handleToggleTrashActive() {
     this._cardElement.remove();
     this._cardElement = null;
-    this._deleteCard(this._cardId);
+    this._handleDeleteCard(this._cardId);
   }
 
   _handleOpenPopupImage() {
@@ -52,7 +55,7 @@ export class Card {
 
   _addEventListeners() {
     this._trashButton.addEventListener("click", this._handleToggleTrashActive);
-    this._likeButton.addEventListener("click", this.like);
+    this._likeButton.addEventListener("click", () => this._handleCardLike(this._cardId)); // вызывать переданный в конструктор метод handleCardLike
     this._cardImage.addEventListener("click", this._handleOpenPopupImage);
   }
 

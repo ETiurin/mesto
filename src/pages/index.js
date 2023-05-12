@@ -124,11 +124,8 @@ Promise.all([api.getProfileInfo(), api.getStartedCards()])
   });
 
 const handleAddCard = (values) => {
-  formAddCardValidator.loading(true)
-  api.addCard(values).then((item) => {
+  return api.addCard(values).then((item) => {
     section.addItem(createCard(handleCardClick)(item));
-  }).finally(() => {
-    formAddCardValidator.loading(false, 'Сохранить')
   });
 };
 
@@ -141,7 +138,7 @@ opeAddPopupButton.addEventListener("click", () => {
 });
 
 const handleEditProfile = ({ user_name, user_about }) => {
-  api.editingProfile({ name: user_name, about: user_about }).then((info) => {
+  return api.editingProfile({ name: user_name, about: user_about }).then((info) => {
     userInfo.setUserInfo(info);
   });
 };
@@ -159,7 +156,7 @@ openEditPopupButton.addEventListener("click", () => {
 });
 
 const handleEditAvatar = (values) => {
-  api.editAvatar({ avatar: values['input-avatar-link'] }).then((info) => {
+  return api.editAvatar({ avatar: values['input-avatar-link'] }).then((info) => {
     userInfo.setUserInfo(info);
   });
 };

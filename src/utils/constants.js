@@ -7,7 +7,7 @@ export const validationOptions = {
   errorClass: 'popup__span_error'
 };
 
-export const initialCards = [
+/*export const initialCards = [
   {
     name: 'Архыз',
     link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/arkhyz.jpg'
@@ -32,7 +32,7 @@ export const initialCards = [
     name: 'Байкал',
     link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/baikal.jpg'
   }
-];
+];*/
 
 export const cardsContainer = document.querySelector(".elements");
 
@@ -47,6 +47,8 @@ export const popupZoomImage = document.querySelector(".popup_zoom-image");
 export const formEditProfile = document.querySelector('.popup__form');
 export const profileName = document.querySelector(".profile__name");
 export const profileAbout = document.querySelector(".profile__about");
-export const profileAvatar = document.querySelector(".profile__avatar");
 export const userNameInput = document.querySelector(".popup__input_type_name");
 export const profileAboutInput = document.querySelector(".popup__input_type_about");
+
+/*export const profileAvatar = document.querySelector(".profile__avatar");
+export const formAvatar = document.querySelector(".popup__form_avatar");*/

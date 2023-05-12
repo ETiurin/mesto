@@ -1,10 +1,10 @@
 import { Popup } from "./Popup.js";
 
-class PopupWithConfirm extends Popup {
+export default class PopupWithConfirm extends Popup {
   constructor(popupElement, apiCallBacks) {
     super(popupElement);
     this._apiCallBacks = apiCallBacks;
-    this._buttonElement = this._popup.querySelector(`.popup__button`);
+    this._buttonElement = this._popup.querySelector(".popup__button");
   }
 
   open(cardId) {
@@ -27,5 +27,3 @@ class PopupWithConfirm extends Popup {
     }
   }
 }
-
-export { PopupWithConfirm };

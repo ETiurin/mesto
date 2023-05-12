@@ -45,11 +45,14 @@ export class FormValidator {
   }
 
   _disableButton() {
+    console.log(this)
     this._buttonElement.classList.add(this._inactiveButtonClass);
     this._buttonElement.setAttribute("disabled", true);
   }
 
   _enableButton() {
+    console.log(this)
+
     this._buttonElement.classList.remove(this._inactiveButtonClass);
     this._buttonElement.removeAttribute("disabled");
   }

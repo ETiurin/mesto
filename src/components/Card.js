@@ -55,7 +55,7 @@ export class Card {
 
   _addEventListeners() {
     this._trashButton.addEventListener("click", this._handleToggleTrashActive);
-    this._likeButton.addEventListener("click", () => this._handleCardLike(this._cardId)); // вызывать переданный в конструктор метод handleCardLike
+    this._likeButton.addEventListener("click", () => this._handleCardLike(this._cardId));
     this._cardImage.addEventListener("click", this._handleOpenPopupImage);
   }
 

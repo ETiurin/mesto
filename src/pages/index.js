@@ -10,7 +10,8 @@ import {
   formEditProfile,
   profileName,
   profileAbout,
-  /*profileAvatar,*/
+  profileAvatar,
+  popupAvatar,
   userNameInput,
   profileAboutInput,
 } from "../utils/constants.js";
@@ -18,6 +19,7 @@ import { FormValidator } from "../components/FormValidator.js";
 import Section from "../components/Section.js";
 import PopupWithImage from "../components/PopupWithImage.js";
 import PopupWithForm from "../components/PopupWithForm.js";
+/*import PopupWithConfirm from "../components/PopupWithConfirm.js";*/
 import UserInfo from "../components/UserInfo.js";
 import { Api, token } from "../components/Api.js";
 import "./index.css";
@@ -30,7 +32,7 @@ let section;
 const userInfo = new UserInfo({
   profileName,
   profileAbout,
-  /*profileAvatar*/
+  profileAvatar,
 });
 
 const formAddCardValidator = new FormValidator(validationOptions, addNewCard);
@@ -41,6 +43,9 @@ const formEditProfileValidator = new FormValidator(
   formEditProfile
 );
 formEditProfileValidator.enableValidation();
+
+const avatarFormValidation = new FormValidator(validationOptions, profileAvatar);
+avatarFormValidation.enableValidation();
 
 const createCard = (openPopupImage) => (item) => {
   const card = new Card(
@@ -130,24 +135,33 @@ openEditPopupButton.addEventListener("click", () => {
   formEditProfileValidator.resetValidation();
 });
 
-/*const avatarFormValidation = new FormValidator(validationOptions, formAvatar);
-avatarFormValidation.enableValidation();
+/*const popupDeleteCard = new PopupWithConfirm(
+  ".popup_delete-card",
+  (card) => {
+    popupDeleteCard.loadingConfirm(true);
+    api
+      .deleteCard(card.cardObj._id)
+      .then(() => {
+        card.cardDom.remove();
+        popupDeleteCard.close();
+      })
+      .finally(() => {
+        popupDeleteCard.loadingConfirm(false, "Да");
+      });
+  }
+);
+popupDeleteCard.setEventListeners();*/
 
-const popupEditAvatar = new PopupWithForm(".popup_avatar", (data) => {
-  popupEditAvatar.loadingConfirm(true);
-  api.editAvatar({ avatar: data["input-description"] })
-    .then(() => {
-      userInfo.setAvatar(data["input-description"]);
-      popupEditAvatar.close();
-    })
-    .finally(() => {
-      popupEditAvatar.loadingConfirm(false, "Сохранить");
-    });
-});
+const handleEditAvatar = ({ user_avatar }) => {
+  api.editAvatar({ avatar: user_avatar }).then((info) => {
+    userInfo.setUserInfo(info);
+  });
+};
 
+const popupEditAvatar = new PopupWithForm(popupAvatar, handleEditAvatar);
 popupEditAvatar.setEventListeners();
-
-profileAvatar.addEventListener(`click`, () => {
+openEditPopupButton.addEventListener("click", () => {
   popupEditAvatar.open();
-  avatarFormValidation.resetValidation()
-});*/
+
+  avatarFormValidation.resetValidation();
+});

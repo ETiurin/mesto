@@ -44,9 +44,7 @@ export class Card {
   }
 
   _handleToggleTrashActive() {
-    this._cardElement.remove();
-    this._cardElement = null;
-    this._handleDeleteCard(this._cardId);
+    this._handleDeleteCard(this);
   }
 
   _handleOpenPopupImage() {

@@ -45,14 +45,11 @@ export class FormValidator {
   }
 
   _disableButton() {
-    console.log(this)
     this._buttonElement.classList.add(this._inactiveButtonClass);
     this._buttonElement.setAttribute("disabled", true);
   }
 
   _enableButton() {
-    console.log(this)
-
     this._buttonElement.classList.remove(this._inactiveButtonClass);
     this._buttonElement.removeAttribute("disabled");
   }
@@ -85,4 +82,13 @@ export class FormValidator {
     this._addEventListeners();
     this._toggleButtonState();
   }
+
+  loading(isLoading, content) {
+    if (isLoading) {
+      this._buttonElement.textContent = `Сохранение...`;
+    } else {
+      this._buttonElement.textContent = content;
+    }
+  }
 }
+

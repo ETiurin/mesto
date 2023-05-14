@@ -58,12 +58,12 @@ export class Card {
   }
 
   render() {
-    this._cardElement = this._getTemplate();
-    this._trashButton = this._cardElement.querySelector(".elements__trash");
-    this._likeButton = this._cardElement.querySelector(".elements__like-button");
-    this._cardImage = this._cardElement.querySelector(".elements__image");
-    this._cardTitle = this._cardElement.querySelector(".elements__title");
-    this._numberLikes = this._cardElement.querySelector(".elements__like-number");
+    this.cardElement = this._getTemplate();
+    this._trashButton = this.cardElement.querySelector(".elements__trash");
+    this._likeButton = this.cardElement.querySelector(".elements__like-button");
+    this._cardImage = this.cardElement.querySelector(".elements__image");
+    this._cardTitle = this.cardElement.querySelector(".elements__title");
+    this._numberLikes = this.cardElement.querySelector(".elements__like-number");
 
     this._cardImage.src = this._link;
     this._cardImage.alt = this._name;
@@ -77,6 +77,6 @@ export class Card {
     this.showLike();
     this._addEventListeners();
 
-    return this._cardElement;
+    return this.cardElement;
   }
 }

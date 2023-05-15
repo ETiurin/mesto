@@ -25,6 +25,7 @@ export default class PopupWithForm extends Popup {
       this.loading(true);
       this._submitForm(this._getInputValues()).then(() => {
         this.close();
+      }).finally(() => {
         this.loading(false, 'Сохранить');
       });
     });
